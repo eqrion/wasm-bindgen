@@ -79,6 +79,7 @@ struct Function {
 }
 
 enum Intrinsic {
+    IsNull,
     TableGrow,
     TableSetNull,
     DropRef,
@@ -300,6 +301,9 @@ impl Transform<'_> {
                 }
             } else if import.module == "__wbindgen_placeholder__" {
                 match import.name.as_str() {
+                    "__wbindgen_is_null" => {
+                        self.intrinsic_map.insert(f, Intrinsic::IsNull);
+                    }
                     "__wbindgen_object_drop_ref" => {
                         self.intrinsic_map.insert(f, Intrinsic::DropRef);
                     }
@@ -717,6 +721,14 @@ impl Transform<'_> {
                             seq.instrs
                                 .insert(i, (RefNull {}.into(), InstrLocId::default()));
                         }
+                        Intrinsic::IsNull => {
+                            seq.instrs[i].0 = RefIsNull {}.into();
+
+                            seq.instrs.insert(i, (TableGet {
+                                table: self.xform.table,
+                            }
+                            .into(), InstrLocId::default()));
+                        },
                         Intrinsic::DropRef => call.func = self.heap_dealloc,
                         Intrinsic::CloneRef => call.func = self.clone_ref,
                     }
