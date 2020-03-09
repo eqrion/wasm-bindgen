@@ -126,16 +126,14 @@ pub fn add(module: &mut Module) -> Result<(), Error> {
             AdapterKind::Local { instructions } => instructions,
             AdapterKind::Import { .. } => continue,
         };
-        let result = match &mut section.funcs.get_mut(us2walrus[id]).kind {
+        let mut result = match &mut section.funcs.get_mut(us2walrus[id]).kind {
             wit_walrus::FuncKind::Local(i) => i,
             _ => unreachable!(),
         };
 
         for instruction in instructions {
-            result.push(
-                translate_instruction(instruction, &us2walrus, module)
-                    .with_context(|| adapter_context(*id))?,
-            );
+            translate_instruction(instruction, &mut result, &us2walrus, module)
+                .with_context(|| adapter_context(*id))?;
         }
     }
 
@@ -204,19 +202,20 @@ pub fn add(module: &mut Module) -> Result<(), Error> {
 
 fn translate_instruction(
     instr: &InstructionData,
+    results: &mut Vec<wit_walrus::Instruction>,
     us2walrus: &HashMap<AdapterId, wit_walrus::FuncId>,
     module: &Module,
-) -> Result<wit_walrus::Instruction, Error> {
+) -> Result<(), Error> {
     use Instruction::*;
 
     match &instr.instr {
-        Standard(s) => Ok(s.clone()),
+        Standard(s) => results.push(s.clone()),
         CallAdapter(id) => {
             let id = us2walrus[id];
-            Ok(wit_walrus::Instruction::CallAdapter(id))
+            results.push(wit_walrus::Instruction::CallAdapter(id));
         }
         CallExport(e) => match module.exports.get(*e).item {
-            walrus::ExportItem::Function(f) => Ok(wit_walrus::Instruction::CallCore(f)),
+            walrus::ExportItem::Function(f) => results.push(wit_walrus::Instruction::CallCore(f)),
             _ => bail!("can only call exported functions"),
         },
         CallTableElement(e) => {
@@ -229,7 +228,7 @@ fn translate_instruction(
                 _ => unreachable!(),
             };
             match functions.elements.get(*e as usize) {
-                Some(Some(f)) => Ok(wit_walrus::Instruction::CallCore(*f)),
+                Some(Some(f)) => results.push(wit_walrus::Instruction::CallCore(*f)),
                 _ => bail!("expected to find an element of the function table"),
             }
         }
@@ -237,10 +236,21 @@ fn translate_instruction(
             mem,
             malloc,
             realloc: _,
-        } => Ok(wit_walrus::Instruction::StringToMemory {
+        } => results.push(wit_walrus::Instruction::StringToMemory {
             mem: *mem,
             malloc: *malloc,
         }),
+        StoreRetptr {
+            ty: AdapterType::I32,
+            offset,
+            mem,
+        } => {
+            results.push(wit_walrus::Instruction::ArgGet(0));
+            results.push(wit_walrus::Instruction::I32Store(wit_walrus::Store {
+                offset: *offset as u32,
+                mem: *mem,
+            }));
+        }
         StoreRetptr { .. } | LoadRetptr { .. } | Retptr => {
             bail!("return pointers aren't supported in wasm interface types");
         }
@@ -289,7 +299,8 @@ fn translate_instruction(
         StackClosure { .. } => {
             bail!("closures aren't supported in wasm interface types");
         }
-    }
+    };
+    Ok(())
 }
 
 fn check_standard_import(import: &AuxImport) -> Result<(), Error> {

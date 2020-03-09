@@ -556,6 +556,8 @@ fn instruction(js: &mut JsBuilder, instr: &Instruction, log_error: &mut bool) ->
             js.string_to_memory(*mem, *malloc, None)?;
         }
 
+        Instruction::Standard(_) => unimplemented!(),
+
         Instruction::StringToMemory {
             mem,
             malloc,
