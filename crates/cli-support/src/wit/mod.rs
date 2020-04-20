@@ -1366,7 +1366,7 @@ impl<'a> Context<'a> {
         let mut to_remove = Vec::new();
         for export in self.module.exports.iter() {
             match export.name.as_str() {
-                n if n.starts_with("__wbindgen") => {
+                n if n.starts_with("__wbindgen") && n != "__wbindgen_malloc" => {
                     to_remove.push(export.id());
                 }
                 _ => {}
