@@ -49,12 +49,7 @@ pub struct Bindgen {
 pub struct Output {
     module: walrus::Module,
     stem: String,
-    generated: Generated,
-}
-
-enum Generated {
-    InterfaceTypes,
-    Js(JsGenerated),
+    generated: JsGenerated,
 }
 
 struct JsGenerated {
@@ -400,37 +395,35 @@ impl Bindgen {
         // unnecessary things here.
         gc_module_and_adapters(&mut module);
 
-        // We're ready for the final emission passes now. If we're in wasm
-        // interface types mode then we execute the various passes there and
-        // generate a valid interface typess section into the wasm module.
-        //
-        // Otherwise we execute the JS generation passes to actually emit
-        // JS/TypeScript/etc. The output here is unused in wasm interfac
-        let generated = if self.wasm_interface_types {
+        // If we're in wasm interface types mode then we execute the various
+        // passes there and generate a valid interface typess section into the
+        // wasm module.
+        if self.wasm_interface_types {
             wit::section::add(&mut module)
                 .context("failed to generate a standard interface types section")?;
-            Generated::InterfaceTypes
-        } else {
-            let aux = module
-                .customs
-                .delete_typed::<wit::WasmBindgenAux>()
-                .expect("aux section should be present");
-            let adapters = module
-                .customs
-                .delete_typed::<wit::NonstandardWitSection>()
-                .unwrap();
-            let mut cx = js::Context::new(&mut module, self, &adapters, &aux)?;
-            cx.generate()?;
-            let (js, ts) = cx.finalize(stem)?;
-            Generated::Js(JsGenerated {
-                snippets: aux.snippets.clone(),
-                local_modules: aux.local_modules.clone(),
-                mode: self.mode.clone(),
-                typescript: self.typescript,
-                npm_dependencies: cx.npm_dependencies.clone(),
-                js,
-                ts,
-            })
+        }
+
+        // We're ready for the final emission passes now. Execute the JS
+        // generation passes to actually emit JS/TypeScript/etc.
+        let aux = module
+            .customs
+            .delete_typed::<wit::WasmBindgenAux>()
+            .expect("aux section should be present");
+        let adapters = module
+            .customs
+            .delete_typed::<wit::NonstandardWitSection>()
+            .unwrap();
+        let mut cx = js::Context::new(&mut module, self, &adapters, &aux)?;
+        cx.generate()?;
+        let (js, ts) = cx.finalize(stem)?;
+        let generated = JsGenerated {
+            snippets: aux.snippets.clone(),
+            local_modules: aux.local_modules.clone(),
+            mode: self.mode.clone(),
+            typescript: self.typescript,
+            npm_dependencies: cx.npm_dependencies.clone(),
+            js,
+            ts,
         };
 
         Ok(Output {
@@ -590,10 +583,7 @@ fn unexported_unused_lld_things(module: &mut Module) {
 
 impl Output {
     pub fn js(&self) -> &str {
-        match &self.generated {
-            Generated::InterfaceTypes => panic!("no js with interface types output"),
-            Generated::Js(gen) => &gen.js,
-        }
+        &self.generated.js
     }
 
     pub fn wasm(&self) -> &walrus::Module {
@@ -609,24 +599,16 @@ impl Output {
     }
 
     fn _emit(&mut self, out_dir: &Path) -> Result<(), Error> {
-        let wasm_name = match &self.generated {
-            Generated::InterfaceTypes => self.stem.clone(),
-            Generated::Js(_) => format!("{}_bg", self.stem),
-        };
+        let wasm_name = format!("{}_bg", self.stem);
         let wasm_path = out_dir.join(wasm_name).with_extension("wasm");
         fs::create_dir_all(out_dir)?;
         let wasm_bytes = self.module.emit_wasm();
         fs::write(&wasm_path, wasm_bytes)
             .with_context(|| format!("failed to write `{}`", wasm_path.display()))?;
 
-        let gen = match &self.generated {
-            Generated::InterfaceTypes => return Ok(()),
-            Generated::Js(gen) => gen,
-        };
-
         // Write out all local JS snippets to the final destination now that
         // we've collected them from all the programs.
-        for (identifier, list) in gen.snippets.iter() {
+        for (identifier, list) in self.generated.snippets.iter() {
             for (i, js) in list.iter().enumerate() {
                 let name = format!("inline{}.js", i);
                 let path = out_dir.join("snippets").join(identifier).join(name);
@@ -636,15 +618,16 @@ impl Output {
             }
         }
 
-        for (path, contents) in gen.local_modules.iter() {
+        for (path, contents) in self.generated.local_modules.iter() {
             let path = out_dir.join("snippets").join(path);
             fs::create_dir_all(path.parent().unwrap())?;
             fs::write(&path, contents)
                 .with_context(|| format!("failed to write `{}`", path.display()))?;
         }
 
-        if gen.npm_dependencies.len() > 0 {
-            let map = gen
+        if self.generated.npm_dependencies.len() > 0 {
+            let map = self
+                .generated
                 .npm_dependencies
                 .iter()
                 .map(|(k, v)| (k, &v.1))
@@ -655,22 +638,22 @@ impl Output {
 
         // And now that we've got all our JS and TypeScript, actually write it
         // out to the filesystem.
-        let extension = if gen.mode.nodejs_experimental_modules() {
+        let extension = if self.generated.mode.nodejs_experimental_modules() {
             "mjs"
         } else {
             "js"
         };
         let js_path = out_dir.join(&self.stem).with_extension(extension);
-        fs::write(&js_path, reset_indentation(&gen.js))
+        fs::write(&js_path, reset_indentation(&self.generated.js))
             .with_context(|| format!("failed to write `{}`", js_path.display()))?;
 
-        if gen.typescript {
+        if self.generated.typescript {
             let ts_path = js_path.with_extension("d.ts");
-            fs::write(&ts_path, &gen.ts)
+            fs::write(&ts_path, &self.generated.ts)
                 .with_context(|| format!("failed to write `{}`", ts_path.display()))?;
         }
 
-        if gen.typescript {
+        if self.generated.typescript {
             let ts_path = wasm_path.with_extension("d.ts");
             let ts = wasm2es6js::typescript(&self.module)?;
             fs::write(&ts_path, ts)

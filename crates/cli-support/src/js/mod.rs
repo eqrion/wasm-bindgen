@@ -12,6 +12,7 @@ use std::fmt;
 use std::fs;
 use std::path::{Path, PathBuf};
 use walrus::{FunctionId, ImportId, MemoryId, Module, TableId};
+use wit_walrus::{ImportId as WitImportId, WasmInterfaceTypes};
 
 mod binding;
 
@@ -34,6 +35,7 @@ pub struct Context<'a> {
 
     /// A map of each wasm import and what JS to hook up to it.
     wasm_import_definitions: HashMap<ImportId, String>,
+    wit_import_definitions: HashMap<WitImportId, String>,
 
     /// A map from an import to the name we've locally imported it as.
     imported_names: HashMap<JsImportName, String>,
@@ -91,6 +93,7 @@ impl<'a> Context<'a> {
             js_imports: Default::default(),
             defined_identifiers: Default::default(),
             wasm_import_definitions: Default::default(),
+            wit_import_definitions: Default::default(),
             exported_classes: Some(Default::default()),
             config,
             module,
@@ -314,6 +317,7 @@ impl<'a> Context<'a> {
                     footer.push_str(js.trim());
                     footer.push_str(";\n");
                 }
+                assert!(self.wit_import_definitions.is_empty());
 
                 footer.push_str(
                     &self.generate_node_wasm_loading(&Path::new(&format!(
@@ -347,6 +351,7 @@ impl<'a> Context<'a> {
                     footer.push_str(js.trim());
                     footer.push_str(";\n");
                 }
+                assert!(self.wit_import_definitions.is_empty());
                 if needs_manual_start {
                     footer.push_str("\nwasm.__wbindgen_start();\n");
                 }
@@ -558,7 +563,7 @@ impl<'a> Context<'a> {
         // Initialize the `imports` object for all import definitions that we're
         // directed to wire up.
         let mut imports_init = String::new();
-        if self.wasm_import_definitions.len() > 0 {
+        if self.wasm_import_definitions.len() > 0 || self.wit_import_definitions.len() > 0 {
             imports_init.push_str("imports.");
             imports_init.push_str(module_name);
             imports_init.push_str(" = {};\n");
@@ -573,6 +578,25 @@ impl<'a> Context<'a> {
             imports_init.push_str(" = ");
             imports_init.push_str(js.trim());
             imports_init.push_str(";\n");
+        }
+        if self.wit_import_definitions.len() > 0 {
+            let mut wit = self
+                .module
+                .customs
+                .delete_typed::<WasmInterfaceTypes>()
+                .unwrap();
+            for (id, js) in crate::sorted_iter(&self.wit_import_definitions) {
+                let import = wit.imports.get_mut(*id);
+                import.module = module_name.to_string();
+                imports_init.push_str("imports.");
+                imports_init.push_str(module_name);
+                imports_init.push_str(".");
+                imports_init.push_str(&import.name);
+                imports_init.push_str(" = ");
+                imports_init.push_str(js.trim());
+                imports_init.push_str(";\n");
+            }
+            self.module.customs.add(*wit);
         }
 
         let extra_modules = self
@@ -2057,7 +2081,12 @@ impl<'a> Context<'a> {
         self.prestore_global_import_identifiers()?;
         for (id, adapter) in crate::sorted_iter(&self.wit.adapters) {
             let instrs = match &adapter.kind {
-                AdapterKind::Import { .. } => continue,
+                AdapterKind::Import { .. } => {
+                    if let Some(wit_import) = self.aux.imports_in_standard.get(id) {
+                        self.standard_import_adapter(*id, *wit_import)?;
+                    }
+                    continue;
+                }
                 AdapterKind::Local { instructions } => instructions,
             };
             self.generate_adapter(*id, adapter, instrs)?;
@@ -2129,6 +2158,10 @@ impl<'a> Context<'a> {
             Export(&'a AuxExport),
             Import(walrus::ImportId),
             Adapter,
+        }
+
+        if self.aux.adapters_in_standard.contains(&id) {
+            return Ok(());
         }
 
         let kind = match self.aux.export_map.get(&id) {
@@ -2284,6 +2317,28 @@ impl<'a> Context<'a> {
             // thrown in debug mode.
             _ => false,
         }
+    }
+
+    fn standard_import_adapter(
+        &mut self,
+        adapter: AdapterId,
+        wit_import: WitImportId,
+    ) -> Result<(), Error> {
+        // Next up check to make sure that this import is to a bare JS value
+        // itself, no extra fluff intended.
+        let js = match &self.aux.import_map[&adapter] {
+            AuxImport::Value(AuxValue::Bare(js)) => js,
+            _ => unreachable!(),
+        };
+
+        self.expose_not_defined();
+        let name = self.import_name(js)?;
+        let js = format!(
+            "typeof {name} == 'function' ? {name} : notDefined('{name}')",
+            name = name,
+        );
+        self.wit_import_definitions.insert(wit_import, js);
+        Ok(())
     }
 
     /// Attempts to directly hook up the `id` import in the wasm module with
