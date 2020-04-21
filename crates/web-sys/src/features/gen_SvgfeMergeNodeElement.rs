@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeMergeNodeElement`*"]
     pub type SvgfeMergeNodeElement;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEMergeNodeElement" , js_name = in1 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEMergeNodeElement" , js_name = in1 ) ]
     #[doc = "Getter for the `in1` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEMergeNodeElement/in1)"]

@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgStopElement`*"]
     pub type SvgStopElement;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGStopElement" , js_name = offset ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGStopElement" , js_name = offset ) ]
     #[doc = "Getter for the `offset` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGStopElement/offset)"]

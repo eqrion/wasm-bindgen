@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Credential`*"]
     pub type Credential;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "Credential" , js_name = id ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "Credential" , js_name = id ) ]
     #[doc = "Getter for the `id` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Credential/id)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Credential`*"]
     pub fn id(this: &Credential) -> String;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "Credential" , js_name = type ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "Credential" , js_name = type ) ]
     #[doc = "Getter for the `type` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Credential/type)"]

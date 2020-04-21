@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgNumber`*"]
     pub type SvgNumber;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGNumber" , js_name = value ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGNumber" , js_name = value ) ]
     #[doc = "Getter for the `value` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGNumber/value)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgNumber`*"]
     pub fn value(this: &SvgNumber) -> f32;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "SVGNumber" , js_name = value ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "SVGNumber" , js_name = value ) ]
     #[doc = "Setter for the `value` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGNumber/value)"]

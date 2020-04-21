@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `External`*"]
     pub type External;
-    # [ wasm_bindgen ( method , structural , js_class = "External" , js_name = AddSearchProvider ) ]
+    # [ wasm_bindgen ( method , final , js_class = "External" , js_name = AddSearchProvider ) ]
     #[doc = "The `AddSearchProvider()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/External/AddSearchProvider)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `External`*"]
     pub fn add_search_provider(this: &External, a_description_url: &str);
-    # [ wasm_bindgen ( method , structural , js_class = "External" , js_name = IsSearchProviderInstalled ) ]
+    # [ wasm_bindgen ( method , final , js_class = "External" , js_name = IsSearchProviderInstalled ) ]
     #[doc = "The `IsSearchProviderInstalled()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/External/IsSearchProviderInstalled)"]

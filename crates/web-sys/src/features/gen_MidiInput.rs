@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `MidiInput`*"]
     pub type MidiInput;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "MIDIInput" , js_name = onmidimessage ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "MIDIInput" , js_name = onmidimessage ) ]
     #[doc = "Getter for the `onmidimessage` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput/onmidimessage)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `MidiInput`*"]
     pub fn onmidimessage(this: &MidiInput) -> Option<::js_sys::Function>;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "MIDIInput" , js_name = onmidimessage ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "MIDIInput" , js_name = onmidimessage ) ]
     #[doc = "Setter for the `onmidimessage` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput/onmidimessage)"]

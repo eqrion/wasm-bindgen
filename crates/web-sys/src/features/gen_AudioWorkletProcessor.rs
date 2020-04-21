@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `AudioWorkletProcessor`*"]
     pub type AudioWorkletProcessor;
     #[cfg(feature = "MessagePort")]
-    # [ wasm_bindgen ( structural , catch , method , getter , js_class = "AudioWorkletProcessor" , js_name = port ) ]
+    # [ wasm_bindgen ( final , catch , method , getter , js_class = "AudioWorkletProcessor" , js_name = port ) ]
     #[doc = "Getter for the `port` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletProcessor/port)"]

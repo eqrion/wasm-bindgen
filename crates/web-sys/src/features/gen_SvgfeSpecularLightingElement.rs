@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeSpecularLightingElement`*"]
     pub type SvgfeSpecularLightingElement;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = in1 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = in1 ) ]
     #[doc = "Getter for the `in1` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/in1)"]
@@ -20,7 +20,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeSpecularLightingElement`*"]
     pub fn in1(this: &SvgfeSpecularLightingElement) -> SvgAnimatedString;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = surfaceScale ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = surfaceScale ) ]
     #[doc = "Getter for the `surfaceScale` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/surfaceScale)"]
@@ -28,7 +28,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpecularLightingElement`*"]
     pub fn surface_scale(this: &SvgfeSpecularLightingElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = specularConstant ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = specularConstant ) ]
     #[doc = "Getter for the `specularConstant` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/specularConstant)"]
@@ -36,7 +36,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpecularLightingElement`*"]
     pub fn specular_constant(this: &SvgfeSpecularLightingElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = specularExponent ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = specularExponent ) ]
     #[doc = "Getter for the `specularExponent` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/specularExponent)"]
@@ -44,7 +44,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpecularLightingElement`*"]
     pub fn specular_exponent(this: &SvgfeSpecularLightingElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = kernelUnitLengthX ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = kernelUnitLengthX ) ]
     #[doc = "Getter for the `kernelUnitLengthX` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/kernelUnitLengthX)"]
@@ -52,7 +52,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpecularLightingElement`*"]
     pub fn kernel_unit_length_x(this: &SvgfeSpecularLightingElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = kernelUnitLengthY ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = kernelUnitLengthY ) ]
     #[doc = "Getter for the `kernelUnitLengthY` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/kernelUnitLengthY)"]
@@ -60,7 +60,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpecularLightingElement`*"]
     pub fn kernel_unit_length_y(this: &SvgfeSpecularLightingElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/x)"]
@@ -68,7 +68,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeSpecularLightingElement`*"]
     pub fn x(this: &SvgfeSpecularLightingElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/y)"]
@@ -76,7 +76,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeSpecularLightingElement`*"]
     pub fn y(this: &SvgfeSpecularLightingElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/width)"]
@@ -84,7 +84,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeSpecularLightingElement`*"]
     pub fn width(this: &SvgfeSpecularLightingElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = height ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = height ) ]
     #[doc = "Getter for the `height` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/height)"]
@@ -92,7 +92,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeSpecularLightingElement`*"]
     pub fn height(this: &SvgfeSpecularLightingElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = result ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpecularLightingElement" , js_name = result ) ]
     #[doc = "Getter for the `result` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpecularLightingElement/result)"]

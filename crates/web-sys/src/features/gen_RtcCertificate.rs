@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `RtcCertificate`*"]
     pub type RtcCertificate;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "RTCCertificate" , js_name = expires ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "RTCCertificate" , js_name = expires ) ]
     #[doc = "Getter for the `expires` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/RTCCertificate/expires)"]

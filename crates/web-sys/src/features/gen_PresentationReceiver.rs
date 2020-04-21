@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PresentationReceiver`*"]
     pub type PresentationReceiver;
-    # [ wasm_bindgen ( structural , catch , method , getter , js_class = "PresentationReceiver" , js_name = connectionList ) ]
+    # [ wasm_bindgen ( final , catch , method , getter , js_class = "PresentationReceiver" , js_name = connectionList ) ]
     #[doc = "Getter for the `connectionList` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PresentationReceiver/connectionList)"]

@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `DeviceLightEvent`*"]
     pub type DeviceLightEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "DeviceLightEvent" , js_name = value ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "DeviceLightEvent" , js_name = value ) ]
     #[doc = "Getter for the `value` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/DeviceLightEvent/value)"]

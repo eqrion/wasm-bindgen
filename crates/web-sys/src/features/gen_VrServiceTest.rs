@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `VrServiceTest`*"]
     pub type VrServiceTest;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "VRServiceTest" , js_name = attachVRController ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "VRServiceTest" , js_name = attachVRController ) ]
     #[doc = "The `attachVRController()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/VRServiceTest/attachVRController)"]
@@ -21,7 +21,7 @@ extern "C" {
         this: &VrServiceTest,
         id: &str,
     ) -> Result<::js_sys::Promise, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "VRServiceTest" , js_name = attachVRDisplay ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "VRServiceTest" , js_name = attachVRDisplay ) ]
     #[doc = "The `attachVRDisplay()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/VRServiceTest/attachVRDisplay)"]

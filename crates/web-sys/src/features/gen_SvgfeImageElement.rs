@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeImageElement`*"]
     pub type SvgfeImageElement;
     #[cfg(feature = "SvgAnimatedPreserveAspectRatio")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = preserveAspectRatio ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = preserveAspectRatio ) ]
     #[doc = "Getter for the `preserveAspectRatio` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/preserveAspectRatio)"]
@@ -20,7 +20,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedPreserveAspectRatio`, `SvgfeImageElement`*"]
     pub fn preserve_aspect_ratio(this: &SvgfeImageElement) -> SvgAnimatedPreserveAspectRatio;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/x)"]
@@ -28,7 +28,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeImageElement`*"]
     pub fn x(this: &SvgfeImageElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/y)"]
@@ -36,7 +36,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeImageElement`*"]
     pub fn y(this: &SvgfeImageElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/width)"]
@@ -44,7 +44,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeImageElement`*"]
     pub fn width(this: &SvgfeImageElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = height ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = height ) ]
     #[doc = "Getter for the `height` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/height)"]
@@ -52,7 +52,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeImageElement`*"]
     pub fn height(this: &SvgfeImageElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = result ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = result ) ]
     #[doc = "Getter for the `result` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/result)"]
@@ -60,7 +60,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeImageElement`*"]
     pub fn result(this: &SvgfeImageElement) -> SvgAnimatedString;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEImageElement" , js_name = href ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEImageElement" , js_name = href ) ]
     #[doc = "Getter for the `href` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEImageElement/href)"]

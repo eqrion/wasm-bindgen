@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `WebglDrawBuffers`*"]
     pub type WebglDrawBuffers;
-    # [ wasm_bindgen ( method , structural , js_class = "WEBGL_draw_buffers" , js_name = drawBuffersWEBGL ) ]
+    # [ wasm_bindgen ( method , final , js_class = "WEBGL_draw_buffers" , js_name = drawBuffersWEBGL ) ]
     #[doc = "The `drawBuffersWEBGL()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_draw_buffers/drawBuffersWEBGL)"]

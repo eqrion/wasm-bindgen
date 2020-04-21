@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SpeechRecognitionResultList`*"]
     pub type SpeechRecognitionResultList;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SpeechRecognitionResultList" , js_name = length ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SpeechRecognitionResultList" , js_name = length ) ]
     #[doc = "Getter for the `length` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognitionResultList/length)"]
@@ -19,7 +19,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SpeechRecognitionResultList`*"]
     pub fn length(this: &SpeechRecognitionResultList) -> u32;
     #[cfg(feature = "SpeechRecognitionResult")]
-    # [ wasm_bindgen ( method , structural , js_class = "SpeechRecognitionResultList" , js_name = item ) ]
+    # [ wasm_bindgen ( method , final , js_class = "SpeechRecognitionResultList" , js_name = item ) ]
     #[doc = "The `item()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognitionResultList/item)"]

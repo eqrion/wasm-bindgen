@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PageTransitionEvent`*"]
     pub type PageTransitionEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PageTransitionEvent" , js_name = persisted ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PageTransitionEvent" , js_name = persisted ) ]
     #[doc = "Getter for the `persisted` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PageTransitionEvent/persisted)"]

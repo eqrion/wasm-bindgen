@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlPreElement`*"]
     pub type HtmlPreElement;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "HTMLPreElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "HTMLPreElement" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLPreElement/width)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlPreElement`*"]
     pub fn width(this: &HtmlPreElement) -> i32;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "HTMLPreElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "HTMLPreElement" , js_name = width ) ]
     #[doc = "Setter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLPreElement/width)"]

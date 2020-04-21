@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PaintWorkletGlobalScope`*"]
     pub type PaintWorkletGlobalScope;
-    # [ wasm_bindgen ( method , structural , js_class = "PaintWorkletGlobalScope" , js_name = registerPaint ) ]
+    # [ wasm_bindgen ( method , final , js_class = "PaintWorkletGlobalScope" , js_name = registerPaint ) ]
     #[doc = "The `registerPaint()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PaintWorkletGlobalScope/registerPaint)"]

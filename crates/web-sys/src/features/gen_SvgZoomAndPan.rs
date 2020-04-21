@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgZoomAndPan`*"]
     pub type SvgZoomAndPan;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGZoomAndPan" , js_name = zoomAndPan ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGZoomAndPan" , js_name = zoomAndPan ) ]
     #[doc = "Getter for the `zoomAndPan` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGZoomAndPan/zoomAndPan)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgZoomAndPan`*"]
     pub fn zoom_and_pan(this: &SvgZoomAndPan) -> u16;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "SVGZoomAndPan" , js_name = zoomAndPan ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "SVGZoomAndPan" , js_name = zoomAndPan ) ]
     #[doc = "Setter for the `zoomAndPan` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGZoomAndPan/zoomAndPan)"]

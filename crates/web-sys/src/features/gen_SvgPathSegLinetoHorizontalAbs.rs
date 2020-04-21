@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgPathSegLinetoHorizontalAbs`*"]
     pub type SvgPathSegLinetoHorizontalAbs;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGPathSegLinetoHorizontalAbs" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGPathSegLinetoHorizontalAbs" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGPathSegLinetoHorizontalAbs/x)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgPathSegLinetoHorizontalAbs`*"]
     pub fn x(this: &SvgPathSegLinetoHorizontalAbs) -> f32;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "SVGPathSegLinetoHorizontalAbs" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "SVGPathSegLinetoHorizontalAbs" , js_name = x ) ]
     #[doc = "Setter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGPathSegLinetoHorizontalAbs/x)"]

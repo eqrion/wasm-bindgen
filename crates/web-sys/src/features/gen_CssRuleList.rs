@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `CssRuleList`*"]
     pub type CssRuleList;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "CSSRuleList" , js_name = length ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "CSSRuleList" , js_name = length ) ]
     #[doc = "Getter for the `length` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/CSSRuleList/length)"]
@@ -19,7 +19,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `CssRuleList`*"]
     pub fn length(this: &CssRuleList) -> u32;
     #[cfg(feature = "CssRule")]
-    # [ wasm_bindgen ( method , structural , js_class = "CSSRuleList" , js_name = item ) ]
+    # [ wasm_bindgen ( method , final , js_class = "CSSRuleList" , js_name = item ) ]
     #[doc = "The `item()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/CSSRuleList/item)"]

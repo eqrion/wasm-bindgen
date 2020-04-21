@@ -12,14 +12,14 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `CanvasCaptureMediaStream`*"]
     pub type CanvasCaptureMediaStream;
     #[cfg(feature = "HtmlCanvasElement")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "CanvasCaptureMediaStream" , js_name = canvas ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "CanvasCaptureMediaStream" , js_name = canvas ) ]
     #[doc = "Getter for the `canvas` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/CanvasCaptureMediaStream/canvas)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `CanvasCaptureMediaStream`, `HtmlCanvasElement`*"]
     pub fn canvas(this: &CanvasCaptureMediaStream) -> HtmlCanvasElement;
-    # [ wasm_bindgen ( method , structural , js_class = "CanvasCaptureMediaStream" , js_name = requestFrame ) ]
+    # [ wasm_bindgen ( method , final , js_class = "CanvasCaptureMediaStream" , js_name = requestFrame ) ]
     #[doc = "The `requestFrame()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/CanvasCaptureMediaStream/requestFrame)"]

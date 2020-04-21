@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `CanvasPattern`*"]
     pub type CanvasPattern;
     #[cfg(feature = "SvgMatrix")]
-    # [ wasm_bindgen ( method , structural , js_class = "CanvasPattern" , js_name = setTransform ) ]
+    # [ wasm_bindgen ( method , final , js_class = "CanvasPattern" , js_name = setTransform ) ]
     #[doc = "The `setTransform()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern/setTransform)"]

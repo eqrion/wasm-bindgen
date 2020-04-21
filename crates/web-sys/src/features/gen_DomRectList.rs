@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `DomRectList`*"]
     pub type DomRectList;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "DOMRectList" , js_name = length ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "DOMRectList" , js_name = length ) ]
     #[doc = "Getter for the `length` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/DOMRectList/length)"]
@@ -19,7 +19,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `DomRectList`*"]
     pub fn length(this: &DomRectList) -> u32;
     #[cfg(feature = "DomRect")]
-    # [ wasm_bindgen ( method , structural , js_class = "DOMRectList" , js_name = item ) ]
+    # [ wasm_bindgen ( method , final , js_class = "DOMRectList" , js_name = item ) ]
     #[doc = "The `item()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/DOMRectList/item)"]

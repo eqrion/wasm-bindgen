@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeComponentTransferElement`*"]
     pub type SvgfeComponentTransferElement;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = in1 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = in1 ) ]
     #[doc = "Getter for the `in1` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEComponentTransferElement/in1)"]
@@ -20,7 +20,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeComponentTransferElement`*"]
     pub fn in1(this: &SvgfeComponentTransferElement) -> SvgAnimatedString;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEComponentTransferElement/x)"]
@@ -28,7 +28,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeComponentTransferElement`*"]
     pub fn x(this: &SvgfeComponentTransferElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEComponentTransferElement/y)"]
@@ -36,7 +36,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeComponentTransferElement`*"]
     pub fn y(this: &SvgfeComponentTransferElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEComponentTransferElement/width)"]
@@ -44,7 +44,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeComponentTransferElement`*"]
     pub fn width(this: &SvgfeComponentTransferElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = height ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = height ) ]
     #[doc = "Getter for the `height` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEComponentTransferElement/height)"]
@@ -52,7 +52,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeComponentTransferElement`*"]
     pub fn height(this: &SvgfeComponentTransferElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = result ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEComponentTransferElement" , js_name = result ) ]
     #[doc = "Getter for the `result` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEComponentTransferElement/result)"]

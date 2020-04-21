@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `CssTransition`*"]
     pub type CssTransition;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "CSSTransition" , js_name = transitionProperty ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "CSSTransition" , js_name = transitionProperty ) ]
     #[doc = "Getter for the `transitionProperty` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/CSSTransition/transitionProperty)"]

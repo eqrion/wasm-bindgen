@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `IdbVersionChangeEvent`*"]
     pub type IdbVersionChangeEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "IDBVersionChangeEvent" , js_name = oldVersion ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "IDBVersionChangeEvent" , js_name = oldVersion ) ]
     #[doc = "Getter for the `oldVersion` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IDBVersionChangeEvent/oldVersion)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `IdbVersionChangeEvent`*"]
     pub fn old_version(this: &IdbVersionChangeEvent) -> f64;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "IDBVersionChangeEvent" , js_name = newVersion ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "IDBVersionChangeEvent" , js_name = newVersion ) ]
     #[doc = "Getter for the `newVersion` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IDBVersionChangeEvent/newVersion)"]

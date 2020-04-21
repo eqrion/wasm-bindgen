@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `MediaStreamAudioDestinationNode`*"]
     pub type MediaStreamAudioDestinationNode;
     #[cfg(feature = "MediaStream")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "MediaStreamAudioDestinationNode" , js_name = stream ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "MediaStreamAudioDestinationNode" , js_name = stream ) ]
     #[doc = "Getter for the `stream` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioDestinationNode/stream)"]

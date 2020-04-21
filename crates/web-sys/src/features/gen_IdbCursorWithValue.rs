@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `IdbCursorWithValue`*"]
     pub type IdbCursorWithValue;
-    # [ wasm_bindgen ( structural , catch , method , getter , js_class = "IDBCursorWithValue" , js_name = value ) ]
+    # [ wasm_bindgen ( final , catch , method , getter , js_class = "IDBCursorWithValue" , js_name = value ) ]
     #[doc = "Getter for the `value` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IDBCursorWithValue/value)"]

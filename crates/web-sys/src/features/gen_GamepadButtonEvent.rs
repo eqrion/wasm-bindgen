@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `GamepadButtonEvent`*"]
     pub type GamepadButtonEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "GamepadButtonEvent" , js_name = button ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "GamepadButtonEvent" , js_name = button ) ]
     #[doc = "Getter for the `button` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/GamepadButtonEvent/button)"]

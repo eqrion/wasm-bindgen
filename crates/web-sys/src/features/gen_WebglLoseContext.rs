@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `WebglLoseContext`*"]
     pub type WebglLoseContext;
-    # [ wasm_bindgen ( method , structural , js_class = "WEBGL_lose_context" , js_name = loseContext ) ]
+    # [ wasm_bindgen ( method , final , js_class = "WEBGL_lose_context" , js_name = loseContext ) ]
     #[doc = "The `loseContext()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_lose_context/loseContext)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `WebglLoseContext`*"]
     pub fn lose_context(this: &WebglLoseContext);
-    # [ wasm_bindgen ( method , structural , js_class = "WEBGL_lose_context" , js_name = restoreContext ) ]
+    # [ wasm_bindgen ( method , final , js_class = "WEBGL_lose_context" , js_name = restoreContext ) ]
     #[doc = "The `restoreContext()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_lose_context/restoreContext)"]

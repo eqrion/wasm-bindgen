@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `BeforeUnloadEvent`*"]
     pub type BeforeUnloadEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "BeforeUnloadEvent" , js_name = returnValue ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "BeforeUnloadEvent" , js_name = returnValue ) ]
     #[doc = "Getter for the `returnValue` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/BeforeUnloadEvent/returnValue)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `BeforeUnloadEvent`*"]
     pub fn return_value(this: &BeforeUnloadEvent) -> String;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "BeforeUnloadEvent" , js_name = returnValue ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "BeforeUnloadEvent" , js_name = returnValue ) ]
     #[doc = "Setter for the `returnValue` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/BeforeUnloadEvent/returnValue)"]

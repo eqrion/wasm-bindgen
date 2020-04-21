@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PushSubscription`*"]
     pub type PushSubscription;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PushSubscription" , js_name = endpoint ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PushSubscription" , js_name = endpoint ) ]
     #[doc = "Getter for the `endpoint` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/endpoint)"]
@@ -19,7 +19,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `PushSubscription`*"]
     pub fn endpoint(this: &PushSubscription) -> String;
     #[cfg(feature = "PushSubscriptionOptions")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PushSubscription" , js_name = options ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PushSubscription" , js_name = options ) ]
     #[doc = "Getter for the `options` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/options)"]
@@ -27,7 +27,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `PushSubscription`, `PushSubscriptionOptions`*"]
     pub fn options(this: &PushSubscription) -> PushSubscriptionOptions;
     #[cfg(feature = "PushEncryptionKeyName")]
-    # [ wasm_bindgen ( catch , method , structural , js_class = "PushSubscription" , js_name = getKey ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "PushSubscription" , js_name = getKey ) ]
     #[doc = "The `getKey()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/getKey)"]
@@ -38,14 +38,14 @@ extern "C" {
         name: PushEncryptionKeyName,
     ) -> Result<Option<::js_sys::ArrayBuffer>, JsValue>;
     #[cfg(feature = "PushSubscriptionJson")]
-    # [ wasm_bindgen ( catch , method , structural , js_class = "PushSubscription" , js_name = toJSON ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "PushSubscription" , js_name = toJSON ) ]
     #[doc = "The `toJSON()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/toJSON)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PushSubscription`, `PushSubscriptionJson`*"]
     pub fn to_json(this: &PushSubscription) -> Result<PushSubscriptionJson, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "PushSubscription" , js_name = unsubscribe ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "PushSubscription" , js_name = unsubscribe ) ]
     #[doc = "The `unsubscribe()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscription/unsubscribe)"]

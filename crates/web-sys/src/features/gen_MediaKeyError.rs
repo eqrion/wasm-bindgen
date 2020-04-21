@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `MediaKeyError`*"]
     pub type MediaKeyError;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "MediaKeyError" , js_name = systemCode ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "MediaKeyError" , js_name = systemCode ) ]
     #[doc = "Getter for the `systemCode` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/MediaKeyError/systemCode)"]

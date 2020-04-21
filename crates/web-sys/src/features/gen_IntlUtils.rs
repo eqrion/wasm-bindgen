@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `IntlUtils`*"]
     pub type IntlUtils;
     #[cfg(feature = "DisplayNameResult")]
-    # [ wasm_bindgen ( catch , method , structural , js_class = "IntlUtils" , js_name = getDisplayNames ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "IntlUtils" , js_name = getDisplayNames ) ]
     #[doc = "The `getDisplayNames()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IntlUtils/getDisplayNames)"]
@@ -23,7 +23,7 @@ extern "C" {
         locales: &::wasm_bindgen::JsValue,
     ) -> Result<DisplayNameResult, JsValue>;
     #[cfg(all(feature = "DisplayNameOptions", feature = "DisplayNameResult",))]
-    # [ wasm_bindgen ( catch , method , structural , js_class = "IntlUtils" , js_name = getDisplayNames ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "IntlUtils" , js_name = getDisplayNames ) ]
     #[doc = "The `getDisplayNames()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IntlUtils/getDisplayNames)"]
@@ -35,7 +35,7 @@ extern "C" {
         options: &DisplayNameOptions,
     ) -> Result<DisplayNameResult, JsValue>;
     #[cfg(feature = "LocaleInfo")]
-    # [ wasm_bindgen ( catch , method , structural , js_class = "IntlUtils" , js_name = getLocaleInfo ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "IntlUtils" , js_name = getLocaleInfo ) ]
     #[doc = "The `getLocaleInfo()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IntlUtils/getLocaleInfo)"]

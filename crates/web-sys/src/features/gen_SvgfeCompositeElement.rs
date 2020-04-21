@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeCompositeElement`*"]
     pub type SvgfeCompositeElement;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = in1 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = in1 ) ]
     #[doc = "Getter for the `in1` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/in1)"]
@@ -20,7 +20,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeCompositeElement`*"]
     pub fn in1(this: &SvgfeCompositeElement) -> SvgAnimatedString;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = in2 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = in2 ) ]
     #[doc = "Getter for the `in2` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/in2)"]
@@ -28,7 +28,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeCompositeElement`*"]
     pub fn in2(this: &SvgfeCompositeElement) -> SvgAnimatedString;
     #[cfg(feature = "SvgAnimatedEnumeration")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = operator ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = operator ) ]
     #[doc = "Getter for the `operator` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/operator)"]
@@ -36,7 +36,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedEnumeration`, `SvgfeCompositeElement`*"]
     pub fn operator(this: &SvgfeCompositeElement) -> SvgAnimatedEnumeration;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = k1 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = k1 ) ]
     #[doc = "Getter for the `k1` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/k1)"]
@@ -44,7 +44,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeCompositeElement`*"]
     pub fn k1(this: &SvgfeCompositeElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = k2 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = k2 ) ]
     #[doc = "Getter for the `k2` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/k2)"]
@@ -52,7 +52,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeCompositeElement`*"]
     pub fn k2(this: &SvgfeCompositeElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = k3 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = k3 ) ]
     #[doc = "Getter for the `k3` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/k3)"]
@@ -60,7 +60,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeCompositeElement`*"]
     pub fn k3(this: &SvgfeCompositeElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = k4 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = k4 ) ]
     #[doc = "Getter for the `k4` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/k4)"]
@@ -68,7 +68,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeCompositeElement`*"]
     pub fn k4(this: &SvgfeCompositeElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/x)"]
@@ -76,7 +76,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeCompositeElement`*"]
     pub fn x(this: &SvgfeCompositeElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/y)"]
@@ -84,7 +84,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeCompositeElement`*"]
     pub fn y(this: &SvgfeCompositeElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/width)"]
@@ -92,7 +92,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeCompositeElement`*"]
     pub fn width(this: &SvgfeCompositeElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = height ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = height ) ]
     #[doc = "Getter for the `height` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/height)"]
@@ -100,7 +100,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeCompositeElement`*"]
     pub fn height(this: &SvgfeCompositeElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFECompositeElement" , js_name = result ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFECompositeElement" , js_name = result ) ]
     #[doc = "Getter for the `result` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFECompositeElement/result)"]

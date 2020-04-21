@@ -29,7 +29,7 @@ extern "C" {
         type_: &str,
         event_init_dict: &ExtendableEventInit,
     ) -> Result<ExtendableEvent, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "ExtendableEvent" , js_name = waitUntil ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "ExtendableEvent" , js_name = waitUntil ) ]
     #[doc = "The `waitUntil()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil)"]

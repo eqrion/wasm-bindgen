@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgPathSegLinetoVerticalRel`*"]
     pub type SvgPathSegLinetoVerticalRel;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGPathSegLinetoVerticalRel" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGPathSegLinetoVerticalRel" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGPathSegLinetoVerticalRel/y)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgPathSegLinetoVerticalRel`*"]
     pub fn y(this: &SvgPathSegLinetoVerticalRel) -> f32;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "SVGPathSegLinetoVerticalRel" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "SVGPathSegLinetoVerticalRel" , js_name = y ) ]
     #[doc = "Setter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGPathSegLinetoVerticalRel/y)"]

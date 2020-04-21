@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `WebglDebugShaders`*"]
     pub type WebglDebugShaders;
     #[cfg(feature = "WebGlShader")]
-    # [ wasm_bindgen ( method , structural , js_class = "WEBGL_debug_shaders" , js_name = getTranslatedShaderSource ) ]
+    # [ wasm_bindgen ( method , final , js_class = "WEBGL_debug_shaders" , js_name = getTranslatedShaderSource ) ]
     #[doc = "The `getTranslatedShaderSource()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/WEBGL_debug_shaders/getTranslatedShaderSource)"]

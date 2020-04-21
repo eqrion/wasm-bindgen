@@ -19,7 +19,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `DomParser`*"]
     pub fn new() -> Result<DomParser, JsValue>;
     #[cfg(all(feature = "Document", feature = "SupportedType",))]
-    # [ wasm_bindgen ( catch , method , structural , js_class = "DOMParser" , js_name = parseFromString ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "DOMParser" , js_name = parseFromString ) ]
     #[doc = "The `parseFromString()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/DOMParser/parseFromString)"]

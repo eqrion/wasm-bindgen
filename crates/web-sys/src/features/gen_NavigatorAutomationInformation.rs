@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `NavigatorAutomationInformation`*"]
     pub type NavigatorAutomationInformation;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "NavigatorAutomationInformation" , js_name = webdriver ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "NavigatorAutomationInformation" , js_name = webdriver ) ]
     #[doc = "Getter for the `webdriver` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorAutomationInformation/webdriver)"]

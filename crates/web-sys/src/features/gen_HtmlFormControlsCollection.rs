@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlFormControlsCollection`*"]
     pub type HtmlFormControlsCollection;
-    # [ wasm_bindgen ( method , structural , js_class = "HTMLFormControlsCollection" , js_name = namedItem ) ]
+    # [ wasm_bindgen ( method , final , js_class = "HTMLFormControlsCollection" , js_name = namedItem ) ]
     #[doc = "The `namedItem()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormControlsCollection/namedItem)"]

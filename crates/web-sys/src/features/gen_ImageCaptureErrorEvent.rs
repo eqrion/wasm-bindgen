@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `ImageCaptureErrorEvent`*"]
     pub type ImageCaptureErrorEvent;
     #[cfg(feature = "ImageCaptureError")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "ImageCaptureErrorEvent" , js_name = imageCaptureError ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "ImageCaptureErrorEvent" , js_name = imageCaptureError ) ]
     #[doc = "Getter for the `imageCaptureError` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ImageCaptureErrorEvent/imageCaptureError)"]

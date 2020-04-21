@@ -17,7 +17,7 @@ extern "C" {
     pub type XrSessionEvent;
     #[cfg(web_sys_unstable_apis)]
     #[cfg(feature = "XrSession")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "XRSessionEvent" , js_name = session ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "XRSessionEvent" , js_name = session ) ]
     #[doc = "Getter for the `session` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/XRSessionEvent/session)"]

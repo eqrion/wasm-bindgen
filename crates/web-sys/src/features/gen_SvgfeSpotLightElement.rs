@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeSpotLightElement`*"]
     pub type SvgfeSpotLightElement;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/x)"]
@@ -20,7 +20,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn x(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/y)"]
@@ -28,7 +28,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn y(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = z ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = z ) ]
     #[doc = "Getter for the `z` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/z)"]
@@ -36,7 +36,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn z(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = pointsAtX ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = pointsAtX ) ]
     #[doc = "Getter for the `pointsAtX` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/pointsAtX)"]
@@ -44,7 +44,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn points_at_x(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = pointsAtY ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = pointsAtY ) ]
     #[doc = "Getter for the `pointsAtY` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/pointsAtY)"]
@@ -52,7 +52,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn points_at_y(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = pointsAtZ ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = pointsAtZ ) ]
     #[doc = "Getter for the `pointsAtZ` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/pointsAtZ)"]
@@ -60,7 +60,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn points_at_z(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = specularExponent ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = specularExponent ) ]
     #[doc = "Getter for the `specularExponent` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/specularExponent)"]
@@ -68,7 +68,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeSpotLightElement`*"]
     pub fn specular_exponent(this: &SvgfeSpotLightElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFESpotLightElement" , js_name = limitingConeAngle ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFESpotLightElement" , js_name = limitingConeAngle ) ]
     #[doc = "Getter for the `limitingConeAngle` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFESpotLightElement/limitingConeAngle)"]

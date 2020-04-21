@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgfeGaussianBlurElement`*"]
     pub type SvgfeGaussianBlurElement;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = in1 ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = in1 ) ]
     #[doc = "Getter for the `in1` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/in1)"]
@@ -20,7 +20,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeGaussianBlurElement`*"]
     pub fn in1(this: &SvgfeGaussianBlurElement) -> SvgAnimatedString;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = stdDeviationX ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = stdDeviationX ) ]
     #[doc = "Getter for the `stdDeviationX` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/stdDeviationX)"]
@@ -28,7 +28,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeGaussianBlurElement`*"]
     pub fn std_deviation_x(this: &SvgfeGaussianBlurElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedNumber")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = stdDeviationY ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = stdDeviationY ) ]
     #[doc = "Getter for the `stdDeviationY` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/stdDeviationY)"]
@@ -36,7 +36,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedNumber`, `SvgfeGaussianBlurElement`*"]
     pub fn std_deviation_y(this: &SvgfeGaussianBlurElement) -> SvgAnimatedNumber;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/x)"]
@@ -44,7 +44,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeGaussianBlurElement`*"]
     pub fn x(this: &SvgfeGaussianBlurElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/y)"]
@@ -52,7 +52,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeGaussianBlurElement`*"]
     pub fn y(this: &SvgfeGaussianBlurElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/width)"]
@@ -60,7 +60,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeGaussianBlurElement`*"]
     pub fn width(this: &SvgfeGaussianBlurElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedLength")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = height ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = height ) ]
     #[doc = "Getter for the `height` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/height)"]
@@ -68,14 +68,14 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedLength`, `SvgfeGaussianBlurElement`*"]
     pub fn height(this: &SvgfeGaussianBlurElement) -> SvgAnimatedLength;
     #[cfg(feature = "SvgAnimatedString")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = result ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SVGFEGaussianBlurElement" , js_name = result ) ]
     #[doc = "Getter for the `result` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/result)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SvgAnimatedString`, `SvgfeGaussianBlurElement`*"]
     pub fn result(this: &SvgfeGaussianBlurElement) -> SvgAnimatedString;
-    # [ wasm_bindgen ( method , structural , js_class = "SVGFEGaussianBlurElement" , js_name = setStdDeviation ) ]
+    # [ wasm_bindgen ( method , final , js_class = "SVGFEGaussianBlurElement" , js_name = setStdDeviation ) ]
     #[doc = "The `setStdDeviation()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SVGFEGaussianBlurElement/setStdDeviation)"]

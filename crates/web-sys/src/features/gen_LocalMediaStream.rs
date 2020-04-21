@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `LocalMediaStream`*"]
     pub type LocalMediaStream;
-    # [ wasm_bindgen ( method , structural , js_class = "LocalMediaStream" , js_name = stop ) ]
+    # [ wasm_bindgen ( method , final , js_class = "LocalMediaStream" , js_name = stop ) ]
     #[doc = "The `stop()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/LocalMediaStream/stop)"]

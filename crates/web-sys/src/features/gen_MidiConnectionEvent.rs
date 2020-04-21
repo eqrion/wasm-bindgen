@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `MidiConnectionEvent`*"]
     pub type MidiConnectionEvent;
     #[cfg(feature = "MidiPort")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "MIDIConnectionEvent" , js_name = port ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "MIDIConnectionEvent" , js_name = port ) ]
     #[doc = "Getter for the `port` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/MIDIConnectionEvent/port)"]

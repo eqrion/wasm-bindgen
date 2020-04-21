@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SpeechRecognitionAlternative`*"]
     pub type SpeechRecognitionAlternative;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SpeechRecognitionAlternative" , js_name = transcript ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SpeechRecognitionAlternative" , js_name = transcript ) ]
     #[doc = "Getter for the `transcript` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognitionAlternative/transcript)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `SpeechRecognitionAlternative`*"]
     pub fn transcript(this: &SpeechRecognitionAlternative) -> String;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "SpeechRecognitionAlternative" , js_name = confidence ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "SpeechRecognitionAlternative" , js_name = confidence ) ]
     #[doc = "Getter for the `confidence` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognitionAlternative/confidence)"]

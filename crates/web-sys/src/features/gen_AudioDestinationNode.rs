@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `AudioDestinationNode`*"]
     pub type AudioDestinationNode;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "AudioDestinationNode" , js_name = maxChannelCount ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "AudioDestinationNode" , js_name = maxChannelCount ) ]
     #[doc = "Getter for the `maxChannelCount` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/AudioDestinationNode/maxChannelCount)"]

@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlTableCaptionElement`*"]
     pub type HtmlTableCaptionElement;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "HTMLTableCaptionElement" , js_name = align ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "HTMLTableCaptionElement" , js_name = align ) ]
     #[doc = "Getter for the `align` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCaptionElement/align)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlTableCaptionElement`*"]
     pub fn align(this: &HtmlTableCaptionElement) -> String;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "HTMLTableCaptionElement" , js_name = align ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "HTMLTableCaptionElement" , js_name = align ) ]
     #[doc = "Setter for the `align` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableCaptionElement/align)"]

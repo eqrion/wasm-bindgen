@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `AuthenticatorResponse`*"]
     pub type AuthenticatorResponse;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "AuthenticatorResponse" , js_name = clientDataJSON ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "AuthenticatorResponse" , js_name = clientDataJSON ) ]
     #[doc = "Getter for the `clientDataJSON` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/AuthenticatorResponse/clientDataJSON)"]

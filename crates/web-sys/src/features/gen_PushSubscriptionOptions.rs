@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PushSubscriptionOptions`*"]
     pub type PushSubscriptionOptions;
-    # [ wasm_bindgen ( structural , catch , method , getter , js_class = "PushSubscriptionOptions" , js_name = applicationServerKey ) ]
+    # [ wasm_bindgen ( final , catch , method , getter , js_class = "PushSubscriptionOptions" , js_name = applicationServerKey ) ]
     #[doc = "Getter for the `applicationServerKey` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PushSubscriptionOptions/applicationServerKey)"]

@@ -11,42 +11,42 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `ScrollAreaEvent`*"]
     pub type ScrollAreaEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "ScrollAreaEvent" , js_name = x ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "ScrollAreaEvent" , js_name = x ) ]
     #[doc = "Getter for the `x` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/x)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `ScrollAreaEvent`*"]
     pub fn x(this: &ScrollAreaEvent) -> f32;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "ScrollAreaEvent" , js_name = y ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "ScrollAreaEvent" , js_name = y ) ]
     #[doc = "Getter for the `y` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/y)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `ScrollAreaEvent`*"]
     pub fn y(this: &ScrollAreaEvent) -> f32;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "ScrollAreaEvent" , js_name = width ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "ScrollAreaEvent" , js_name = width ) ]
     #[doc = "Getter for the `width` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/width)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `ScrollAreaEvent`*"]
     pub fn width(this: &ScrollAreaEvent) -> f32;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "ScrollAreaEvent" , js_name = height ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "ScrollAreaEvent" , js_name = height ) ]
     #[doc = "Getter for the `height` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/height)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `ScrollAreaEvent`*"]
     pub fn height(this: &ScrollAreaEvent) -> f32;
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `ScrollAreaEvent`*"]
     pub fn init_scroll_area_event(this: &ScrollAreaEvent, type_: &str);
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -57,7 +57,7 @@ extern "C" {
         type_: &str,
         can_bubble: bool,
     );
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -70,7 +70,7 @@ extern "C" {
         cancelable: bool,
     );
     #[cfg(feature = "Window")]
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -84,7 +84,7 @@ extern "C" {
         view: Option<&Window>,
     );
     #[cfg(feature = "Window")]
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -99,7 +99,7 @@ extern "C" {
         detail: i32,
     );
     #[cfg(feature = "Window")]
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -115,7 +115,7 @@ extern "C" {
         x: f32,
     );
     #[cfg(feature = "Window")]
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -132,7 +132,7 @@ extern "C" {
         y: f32,
     );
     #[cfg(feature = "Window")]
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]
@@ -150,7 +150,7 @@ extern "C" {
         width: f32,
     );
     #[cfg(feature = "Window")]
-    # [ wasm_bindgen ( method , structural , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
+    # [ wasm_bindgen ( method , final , js_class = "ScrollAreaEvent" , js_name = initScrollAreaEvent ) ]
     #[doc = "The `initScrollAreaEvent()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/ScrollAreaEvent/initScrollAreaEvent)"]

@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `DomError`*"]
     pub type DomError;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "DOMError" , js_name = name ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "DOMError" , js_name = name ) ]
     #[doc = "Getter for the `name` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/DOMError/name)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `DomError`*"]
     pub fn name(this: &DomError) -> String;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "DOMError" , js_name = message ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "DOMError" , js_name = message ) ]
     #[doc = "Getter for the `message` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/DOMError/message)"]

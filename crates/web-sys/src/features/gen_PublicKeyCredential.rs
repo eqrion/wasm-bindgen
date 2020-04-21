@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PublicKeyCredential`*"]
     pub type PublicKeyCredential;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PublicKeyCredential" , js_name = rawId ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PublicKeyCredential" , js_name = rawId ) ]
     #[doc = "Getter for the `rawId` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredential/rawId)"]
@@ -19,7 +19,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `PublicKeyCredential`*"]
     pub fn raw_id(this: &PublicKeyCredential) -> ::js_sys::ArrayBuffer;
     #[cfg(feature = "AuthenticatorResponse")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PublicKeyCredential" , js_name = response ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PublicKeyCredential" , js_name = response ) ]
     #[doc = "Getter for the `response` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredential/response)"]
@@ -27,7 +27,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `AuthenticatorResponse`, `PublicKeyCredential`*"]
     pub fn response(this: &PublicKeyCredential) -> AuthenticatorResponse;
     #[cfg(feature = "AuthenticationExtensionsClientOutputs")]
-    # [ wasm_bindgen ( method , structural , js_class = "PublicKeyCredential" , js_name = getClientExtensionResults ) ]
+    # [ wasm_bindgen ( method , final , js_class = "PublicKeyCredential" , js_name = getClientExtensionResults ) ]
     #[doc = "The `getClientExtensionResults()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PublicKeyCredential/getClientExtensionResults)"]

@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PromiseRejectionEvent`*"]
     pub type PromiseRejectionEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PromiseRejectionEvent" , js_name = promise ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PromiseRejectionEvent" , js_name = promise ) ]
     #[doc = "Getter for the `promise` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PromiseRejectionEvent/promise)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PromiseRejectionEvent`*"]
     pub fn promise(this: &PromiseRejectionEvent) -> ::js_sys::Promise;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "PromiseRejectionEvent" , js_name = reason ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "PromiseRejectionEvent" , js_name = reason ) ]
     #[doc = "Getter for the `reason` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PromiseRejectionEvent/reason)"]

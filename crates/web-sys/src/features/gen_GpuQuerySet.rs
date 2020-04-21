@@ -16,7 +16,7 @@ extern "C" {
     #[doc = "[described in the `wasm-bindgen` guide](https://rustwasm.github.io/docs/wasm-bindgen/web-sys/unstable-apis.html)*"]
     pub type GpuQuerySet;
     #[cfg(web_sys_unstable_apis)]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "GPUQuerySet" , js_name = label ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "GPUQuerySet" , js_name = label ) ]
     #[doc = "Getter for the `label` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/GPUQuerySet/label)"]
@@ -27,7 +27,7 @@ extern "C" {
     #[doc = "[described in the `wasm-bindgen` guide](https://rustwasm.github.io/docs/wasm-bindgen/web-sys/unstable-apis.html)*"]
     pub fn label(this: &GpuQuerySet) -> Option<String>;
     #[cfg(web_sys_unstable_apis)]
-    # [ wasm_bindgen ( structural , method , setter , js_class = "GPUQuerySet" , js_name = label ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "GPUQuerySet" , js_name = label ) ]
     #[doc = "Setter for the `label` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/GPUQuerySet/label)"]
@@ -38,7 +38,7 @@ extern "C" {
     #[doc = "[described in the `wasm-bindgen` guide](https://rustwasm.github.io/docs/wasm-bindgen/web-sys/unstable-apis.html)*"]
     pub fn set_label(this: &GpuQuerySet, value: Option<&str>);
     #[cfg(web_sys_unstable_apis)]
-    # [ wasm_bindgen ( method , structural , js_class = "GPUQuerySet" , js_name = destroy ) ]
+    # [ wasm_bindgen ( method , final , js_class = "GPUQuerySet" , js_name = destroy ) ]
     #[doc = "The `destroy()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/GPUQuerySet/destroy)"]

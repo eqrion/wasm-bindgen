@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `BlobEvent`*"]
     pub type BlobEvent;
     #[cfg(feature = "Blob")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "BlobEvent" , js_name = data ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "BlobEvent" , js_name = data ) ]
     #[doc = "Getter for the `data` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/BlobEvent/data)"]

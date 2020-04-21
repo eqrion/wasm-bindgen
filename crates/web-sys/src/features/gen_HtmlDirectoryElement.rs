@@ -11,14 +11,14 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlDirectoryElement`*"]
     pub type HtmlDirectoryElement;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "HTMLDirectoryElement" , js_name = compact ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "HTMLDirectoryElement" , js_name = compact ) ]
     #[doc = "Getter for the `compact` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDirectoryElement/compact)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `HtmlDirectoryElement`*"]
     pub fn compact(this: &HtmlDirectoryElement) -> bool;
-    # [ wasm_bindgen ( structural , method , setter , js_class = "HTMLDirectoryElement" , js_name = compact ) ]
+    # [ wasm_bindgen ( final , method , setter , js_class = "HTMLDirectoryElement" , js_name = compact ) ]
     #[doc = "Setter for the `compact` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDirectoryElement/compact)"]

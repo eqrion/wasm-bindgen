@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `MozDebug`*"]
     pub type MozDebug;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "MOZ_debug" , js_name = getParameter ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "MOZ_debug" , js_name = getParameter ) ]
     #[doc = "The `getParameter()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/MOZ_debug/getParameter)"]

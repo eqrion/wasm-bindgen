@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `RtcdtmfToneChangeEvent`*"]
     pub type RtcdtmfToneChangeEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "RTCDTMFToneChangeEvent" , js_name = tone ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "RTCDTMFToneChangeEvent" , js_name = tone ) ]
     #[doc = "Getter for the `tone` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/RTCDTMFToneChangeEvent/tone)"]

@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `AuthenticatorAttestationResponse`*"]
     pub type AuthenticatorAttestationResponse;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "AuthenticatorAttestationResponse" , js_name = attestationObject ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "AuthenticatorAttestationResponse" , js_name = attestationObject ) ]
     #[doc = "Getter for the `attestationObject` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/AuthenticatorAttestationResponse/attestationObject)"]

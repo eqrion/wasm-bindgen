@@ -22,7 +22,7 @@ extern "C" {
         context: &BaseAudioContext,
         options: &IirFilterOptions,
     ) -> Result<IirFilterNode, JsValue>;
-    # [ wasm_bindgen ( method , structural , js_class = "IIRFilterNode" , js_name = getFrequencyResponse ) ]
+    # [ wasm_bindgen ( method , final , js_class = "IIRFilterNode" , js_name = getFrequencyResponse ) ]
     #[doc = "The `getFrequencyResponse()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/IIRFilterNode/getFrequencyResponse)"]

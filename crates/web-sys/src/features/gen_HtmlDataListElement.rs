@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `HtmlDataListElement`*"]
     pub type HtmlDataListElement;
     #[cfg(feature = "HtmlCollection")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "HTMLDataListElement" , js_name = options ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "HTMLDataListElement" , js_name = options ) ]
     #[doc = "Getter for the `options` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDataListElement/options)"]

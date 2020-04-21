@@ -18,7 +18,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PerformanceObserver`*"]
     pub fn new(callback: &::js_sys::Function) -> Result<PerformanceObserver, JsValue>;
-    # [ wasm_bindgen ( method , structural , js_class = "PerformanceObserver" , js_name = disconnect ) ]
+    # [ wasm_bindgen ( method , final , js_class = "PerformanceObserver" , js_name = disconnect ) ]
     #[doc = "The `disconnect()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/disconnect)"]
@@ -26,14 +26,14 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `PerformanceObserver`*"]
     pub fn disconnect(this: &PerformanceObserver);
     #[cfg(feature = "PerformanceObserverInit")]
-    # [ wasm_bindgen ( method , structural , js_class = "PerformanceObserver" , js_name = observe ) ]
+    # [ wasm_bindgen ( method , final , js_class = "PerformanceObserver" , js_name = observe ) ]
     #[doc = "The `observe()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/observe)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `PerformanceObserver`, `PerformanceObserverInit`*"]
     pub fn observe(this: &PerformanceObserver, options: &PerformanceObserverInit);
-    # [ wasm_bindgen ( method , structural , js_class = "PerformanceObserver" , js_name = takeRecords ) ]
+    # [ wasm_bindgen ( method , final , js_class = "PerformanceObserver" , js_name = takeRecords ) ]
     #[doc = "The `takeRecords()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver/takeRecords)"]

@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `TcpServerSocketEvent`*"]
     pub type TcpServerSocketEvent;
     #[cfg(feature = "TcpSocket")]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "TCPServerSocketEvent" , js_name = socket ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "TCPServerSocketEvent" , js_name = socket ) ]
     #[doc = "Getter for the `socket` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/TCPServerSocketEvent/socket)"]

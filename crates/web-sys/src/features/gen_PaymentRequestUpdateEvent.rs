@@ -29,7 +29,7 @@ extern "C" {
         type_: &str,
         event_init_dict: &PaymentRequestUpdateEventInit,
     ) -> Result<PaymentRequestUpdateEvent, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "PaymentRequestUpdateEvent" , js_name = updateWith ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "PaymentRequestUpdateEvent" , js_name = updateWith ) ]
     #[doc = "The `updateWith()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/PaymentRequestUpdateEvent/updateWith)"]

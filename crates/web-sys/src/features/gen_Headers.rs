@@ -34,35 +34,35 @@ extern "C" {
     pub fn new_with_str_sequence_sequence(
         init: &::wasm_bindgen::JsValue,
     ) -> Result<Headers, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "Headers" , js_name = append ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "Headers" , js_name = append ) ]
     #[doc = "The `append()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Headers/append)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Headers`*"]
     pub fn append(this: &Headers, name: &str, value: &str) -> Result<(), JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "Headers" , js_name = delete ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "Headers" , js_name = delete ) ]
     #[doc = "The `delete()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Headers/delete)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Headers`*"]
     pub fn delete(this: &Headers, name: &str) -> Result<(), JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "Headers" , js_name = get ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "Headers" , js_name = get ) ]
     #[doc = "The `get()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Headers/get)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Headers`*"]
     pub fn get(this: &Headers, name: &str) -> Result<Option<String>, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "Headers" , js_name = has ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "Headers" , js_name = has ) ]
     #[doc = "The `has()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Headers/has)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Headers`*"]
     pub fn has(this: &Headers, name: &str) -> Result<bool, JsValue>;
-    # [ wasm_bindgen ( catch , method , structural , js_class = "Headers" , js_name = set ) ]
+    # [ wasm_bindgen ( catch , method , final , js_class = "Headers" , js_name = set ) ]
     #[doc = "The `set()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Headers/set)"]

@@ -12,7 +12,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `RtcIdentityProviderRegistrar`*"]
     pub type RtcIdentityProviderRegistrar;
     #[cfg(feature = "RtcIdentityProvider")]
-    # [ wasm_bindgen ( method , structural , js_class = "RTCIdentityProviderRegistrar" , js_name = register ) ]
+    # [ wasm_bindgen ( method , final , js_class = "RTCIdentityProviderRegistrar" , js_name = register ) ]
     #[doc = "The `register()` method."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/RTCIdentityProviderRegistrar/register)"]

@@ -16,7 +16,7 @@ extern "C" {
     #[doc = "[described in the `wasm-bindgen` guide](https://rustwasm.github.io/docs/wasm-bindgen/web-sys/unstable-apis.html)*"]
     pub type XrViewerPose;
     #[cfg(web_sys_unstable_apis)]
-    # [ wasm_bindgen ( structural , method , getter , js_class = "XRViewerPose" , js_name = views ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "XRViewerPose" , js_name = views ) ]
     #[doc = "Getter for the `views` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/XRViewerPose/views)"]

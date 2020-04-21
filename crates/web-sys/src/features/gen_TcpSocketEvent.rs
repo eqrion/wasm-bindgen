@@ -11,7 +11,7 @@ extern "C" {
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `TcpSocketEvent`*"]
     pub type TcpSocketEvent;
-    # [ wasm_bindgen ( structural , method , getter , js_class = "TCPSocketEvent" , js_name = data ) ]
+    # [ wasm_bindgen ( final , method , getter , js_class = "TCPSocketEvent" , js_name = data ) ]
     #[doc = "Getter for the `data` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/TCPSocketEvent/data)"]
