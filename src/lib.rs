@@ -14,6 +14,10 @@ use core::marker;
 use core::mem;
 use core::ops::{Deref, DerefMut};
 
+extern crate alloc;
+use alloc::fmt::format;
+use core::format_args;
+
 use crate::convert::{FromWasmAbi, WasmOptionalF64, WasmSlice};
 
 macro_rules! if_std {
@@ -769,7 +773,10 @@ where
         if cfg!(all(target_arch = "wasm32", not(target_os = "emscripten"))) {
             match self {
                 Ok(val) => val,
-                Err(_) => throw_str(message),
+                Err(err) => {
+                    let msg = format(format_args!("{}: {:?}", message, err));
+                    throw_str(&msg)
+                },
             }
         } else {
             self.expect(message)

@@ -300,6 +300,7 @@ impl AdapterType {
             wit_walrus::ValType::F32 => AdapterType::F32,
             wit_walrus::ValType::F64 => AdapterType::F64,
             wit_walrus::ValType::String => AdapterType::String,
+            wit_walrus::ValType::Bool => AdapterType::Bool,
             wit_walrus::ValType::Anyref => AdapterType::Anyref,
             wit_walrus::ValType::I32 => AdapterType::I32,
             wit_walrus::ValType::I64 => AdapterType::I64,
@@ -341,14 +342,23 @@ impl AdapterType {
             AdapterType::F32 => wit_walrus::ValType::F32,
             AdapterType::F64 => wit_walrus::ValType::F64,
             AdapterType::String => wit_walrus::ValType::String,
-            AdapterType::Anyref | AdapterType::NamedAnyref(_) => wit_walrus::ValType::Anyref,
+            AdapterType::Bool => wit_walrus::ValType::Bool,
+            AdapterType::Anyref |
+            AdapterType::NamedAnyref(_) => wit_walrus::ValType::Anyref,
 
             AdapterType::I32 => wit_walrus::ValType::I32,
             AdapterType::I64 => wit_walrus::ValType::I64,
-            AdapterType::Option(_)
-            | AdapterType::Function
+
+            AdapterType::Option(x) => {
+                match x.as_ref() {
+                    AdapterType::Anyref |
+                    AdapterType::NamedAnyref(_) => wit_walrus::ValType::Anyref,
+                    _ => return None,
+                }
+            }
+
+            AdapterType::Function
             | AdapterType::Struct(_)
-            | AdapterType::Bool
             | AdapterType::Vector(_) => return None,
         })
     }

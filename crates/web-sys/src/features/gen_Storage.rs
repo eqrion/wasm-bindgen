@@ -31,7 +31,7 @@ extern "C" {
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Storage/getItem)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Storage`*"]
-    pub fn get_item(this: &Storage, key: &str) -> Result<Option<String>, JsValue>;
+    pub fn get_item(this: &Storage, key: &str) -> Result<String, JsValue>;
     # [ wasm_bindgen ( catch , method , final , js_class = "Storage" , js_name = key ) ]
     #[doc = "The `key()` method."]
     #[doc = ""]

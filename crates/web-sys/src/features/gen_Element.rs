@@ -278,7 +278,7 @@ extern "C" {
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Element/getAttribute)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Element`*"]
-    pub fn get_attribute(this: &Element, name: &str) -> Option<String>;
+    pub fn get_attribute(this: &Element, name: &str) -> String;
     # [ wasm_bindgen ( method , final , js_class = "Element" , js_name = getAttributeNS ) ]
     #[doc = "The `getAttributeNS()` method."]
     #[doc = ""]

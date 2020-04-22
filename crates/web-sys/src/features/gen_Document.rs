@@ -1898,7 +1898,7 @@ extern "C" {
     #[doc = "*This API requires the following crate features to be activated: `Document`, `Element`*"]
     pub fn create_element_ns(
         this: &Document,
-        namespace: Option<&str>,
+        namespace: &str,
         qualified_name: &str,
     ) -> Result<Element, JsValue>;
     #[cfg(all(feature = "Element", feature = "ElementCreationOptions",))]

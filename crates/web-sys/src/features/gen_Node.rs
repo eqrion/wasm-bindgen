@@ -118,14 +118,14 @@ extern "C" {
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Node`*"]
-    pub fn text_content(this: &Node) -> Option<String>;
+    pub fn text_content(this: &Node) -> String;
     # [ wasm_bindgen ( final , method , setter , js_class = "Node" , js_name = textContent ) ]
     #[doc = "Setter for the `textContent` field of this object."]
     #[doc = ""]
     #[doc = "[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent)"]
     #[doc = ""]
     #[doc = "*This API requires the following crate features to be activated: `Node`*"]
-    pub fn set_text_content(this: &Node, value: Option<&str>);
+    pub fn set_text_content(this: &Node, value: &str);
     # [ wasm_bindgen ( catch , method , final , js_class = "Node" , js_name = appendChild ) ]
     #[doc = "The `appendChild()` method."]
     #[doc = ""]

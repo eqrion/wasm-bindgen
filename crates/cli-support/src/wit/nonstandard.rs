@@ -3,7 +3,7 @@ use crate::wit::AdapterId;
 use std::borrow::Cow;
 use std::collections::{HashMap, HashSet};
 use std::path::PathBuf;
-use walrus::TypedCustomSectionId;
+use walrus::{TypedCustomSectionId, ImportId};
 use wit_walrus::ImportId as WitImportId;
 
 /// A synthetic custom section which is not standardized, never will be, and
@@ -39,9 +39,10 @@ pub struct WasmBindgenAux {
     pub imports_with_catch: HashSet<AdapterId>,
     pub imports_with_variadic: HashSet<AdapterId>,
     pub imports_with_assert_no_shim: HashSet<AdapterId>,
-    pub imports_in_standard: HashMap<AdapterId, WitImportId>,
 
     // Results of a standard interface types pass
+    pub imports_in_standard: HashMap<AdapterId, WitImportId>,
+    pub implements_in_standard: HashSet<ImportId>,
     pub adapters_in_standard: HashSet<AdapterId>,
 
     /// Auxiliary information to go into JS/TypeScript bindings describing the

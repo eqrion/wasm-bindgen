@@ -20,7 +20,7 @@ use crate::wit::InstructionData;
 use crate::wit::{Adapter, AdapterId, AdapterJsImportKind, AdapterType, Instruction};
 use crate::wit::{AdapterKind, NonstandardWitSection, WasmBindgenAux};
 use crate::wit::{AuxImport, AuxValue, JsImport, JsImportName};
-use anyhow::{anyhow, bail, Context, Error};
+use anyhow::{anyhow, bail, Error};
 use std::collections::{HashMap, HashSet};
 use walrus::Module;
 use wit_walrus::Instruction as WitInstruction;
@@ -35,21 +35,71 @@ pub fn add(module: &mut Module) -> Result<(), Error> {
 
     let mut valid_adapters = HashSet::new();
     for (id, func) in crate::sorted_iter(&nonstandard.adapters) {
-        match func.kind {
-            AdapterKind::Local { .. } => continue,
-            _ => {}
-        }
-        if check_adapter(*id, func, &mut valid_adapters, module, &nonstandard, &aux) {
-            valid_adapters.insert(*id);
-        }
-    }
-    for (id, func) in crate::sorted_iter(&nonstandard.adapters) {
-        match func.kind {
+        let mut referenced_adapters = Vec::new();
+
+        match &func.kind {
             AdapterKind::Import { .. } => continue,
-            _ => {}
+            AdapterKind::Local { instructions } => {
+                for instr in instructions {
+                    use Instruction::*;
+                    match &instr.instr {
+                        Standard(s) => match s {
+                            WitInstruction::CallAdapter(_) => unimplemented!(),
+                            _ => {}
+                        },
+                        CallAdapter(i) => {
+                            referenced_adapters.push((*i, &nonstandard.adapters[i]));
+                        }
+                        _ => { }
+                    }
+                }
+            }
         }
-        if check_adapter(*id, func, &mut valid_adapters, module, &nonstandard, &aux) {
-            valid_adapters.insert(*id);
+
+        let adapter_context = |id: AdapterId| {
+            if let Some((name, _)) = nonstandard.exports.iter().find(|p| p.1 == id) {
+                return format!("in adapter export `{}`", name);
+            }
+            if let Some((core, _, _)) = nonstandard.implements.iter().find(|p| p.2 == id) {
+                let import = module.imports.get(*core);
+                return format!(
+                    "in adapter implements for `{}::{}`",
+                    import.module, import.name
+                );
+            }
+            if let Some(aux_import) = aux.import_map.get(&id) {
+                format!("in adapter import {:?}", aux_import)
+            } else {
+                format!("in adapter import")
+            }
+        };
+
+        if referenced_adapters.len() != 1 {
+            eprintln!("Skipping local-only adapter.");
+            continue;
+        }
+        referenced_adapters.push((*id, func));
+        let mut errors = Vec::new();
+        for (id, adapter) in &referenced_adapters {
+            if let Err(error) = check_adapter(*id, adapter, module, &aux) {
+                errors.push((error, *id, adapter));
+            }
+        }
+        if errors.is_empty() {
+            for (id, _) in &referenced_adapters {
+                if let Some((import, _, _)) = nonstandard.implements.iter().find(|p| p.2 == *id) {
+                    aux.implements_in_standard.insert(*import);
+                }
+                valid_adapters.insert(*id);
+            }
+        } else {
+            eprintln!("Skipping adapter.");
+            for (err, id, func) in errors {
+                // eprintln!("\tContext: {:#?}", adapter_context(id));
+                eprintln!("\tAdapter: {:?}", func);
+                eprintln!("\tError: {:?}", err);
+            }
+            eprintln!();
         }
     }
 
@@ -70,12 +120,17 @@ pub fn add(module: &mut Module) -> Result<(), Error> {
                 name,
                 kind: _,
             } => {
+                let mut module = module.clone();
+                if module == "__wbindgen_placeholder__" {
+                    module = "wbg".to_string();
+                }
+
                 eprintln!(
                     "Generating interface for adapter import {:?}.{:?}",
                     module, name
                 );
 
-                let (func_id, import_id) = section.add_import_func(module, name, ty);
+                let (func_id, import_id) = section.add_import_func(&module, name, ty);
                 imports_in_standard.insert(*id, import_id);
                 func_id
             }
@@ -130,92 +185,77 @@ pub fn add(module: &mut Module) -> Result<(), Error> {
 fn check_adapter(
     id: AdapterId,
     func: &Adapter,
-    valid_adapters: &mut HashSet<AdapterId>,
     module: &Module,
-    nonstandard: &NonstandardWitSection,
     aux: &WasmBindgenAux,
-) -> bool {
-    let adapter_context = |id: AdapterId| {
-        if let Some((name, _)) = nonstandard.exports.iter().find(|p| p.1 == id) {
-            return format!("in adapter export `{}`", name);
-        }
-        if let Some((core, _, _)) = nonstandard.implements.iter().find(|p| p.2 == id) {
-            let import = module.imports.get(*core);
-            return format!(
-                "in adapter implements for `{}::{}`",
-                import.module, import.name
-            );
-        }
-        format!("in adapter import")
-    };
-
+) -> Result<(), Error> {
     if let Some(_) = aux.export_map.get(&id) {
-        return false;
+        bail!("exports are unsupported")
     }
     if let Some(import) = aux.import_map.get(&id) {
-        if let Err(err) = check_standard_import(import).context(adapter_context(id)) {
-            eprintln!("Generating js for adapter:\n{:?}\n", err);
-            return false;
-        }
+        check_standard_import(import)?;
     }
 
-    match translate_tys(&func.params).context(adapter_context(id)) {
-        Ok(_) => {}
-        Err(err) => {
-            eprintln!("Generating js for adapter:\n{:?}\n", err);
-            return false;
-        }
-    }
-    match translate_tys(&func.results).context(adapter_context(id)) {
-        Ok(_) => {}
-        Err(err) => {
-            eprintln!("Generating js for adapter:\n{:?}\n", err);
-            return false;
-        }
-    }
+    translate_tys(&func.params)?;
+    translate_tys(&func.results)?;
 
     match &func.kind {
         AdapterKind::Import {
             module: _,
-            name: _,
+            name,
             kind,
         } => {
-            if *kind == AdapterJsImportKind::Normal || *kind == AdapterJsImportKind::Method {
-                return true;
-            } else {
-                eprintln!("Generating js for adapter:\ninvalid kind {:?}\n", kind);
-                return false;
+            if name.contains("taggedvalue") ||
+                name.contains("__wbg_debug_") ||
+                name.contains("__wbg_error_") ||
+                name.contains("__wbg_info_") ||
+                name.contains("__wbg_log_") ||
+                name.contains("__wbg_warn_") {
+                bail!("handcoded skip")
+            }
+            if *kind == AdapterJsImportKind::Constructor {
+                bail!("constructors are unsupported")
             }
         }
         AdapterKind::Local { instructions } => {
             for instruction in instructions {
-                if let Err(err) = check_instruction(&instruction, module, valid_adapters)
-                    .context(adapter_context(id))
-                {
-                    eprintln!("Generating js for adapter:\n{:?}\n", err);
-                    return false;
-                }
+                check_instruction(&instruction, module, aux)?;
             }
-            return true;
         }
     }
+    Ok(())
 }
 
 fn check_instruction(
     instr: &InstructionData,
     module: &Module,
-    valid_adapters: &mut HashSet<AdapterId>,
+    aux: &WasmBindgenAux,
 ) -> Result<(), Error> {
     use Instruction::*;
 
     match &instr.instr {
-        Standard(s) => match s {
-            WitInstruction::CallAdapter(_) => bail!("unsupported standard call_adapter"),
-            _ => {}
-        },
-        CallAdapter(i) => {
-            if !valid_adapters.contains(i) {
-                bail!("references an invalid adapter");
+        Standard(_) => { },
+        CallAdapter(id) => {
+            if let Some(import) = aux.import_map.get(id) {
+                match import {
+                    AuxImport::Value(value) => {
+                        let import = match value {
+                            AuxValue::Bare(imp) => imp,
+                            AuxValue::Getter(imp, _) => imp,
+                            AuxValue::ClassGetter(imp, _) => imp,
+                            AuxValue::Setter(imp, _) => imp,
+                            AuxValue::ClassSetter(imp, _) => imp,
+                        };
+                        match &import.name {
+                            JsImportName::Global { name } => {
+                                if name == "window" || name == "Window" {
+                                    bail!("cannot use proxied objects");
+                                }
+                            }
+                            _ => { }
+                        }
+                    }
+                    _ => {}
+                }
             }
         }
         CallExport(e) => match module.exports.get(*e).item {
@@ -244,9 +284,7 @@ fn check_instruction(
         StoreRetptr { .. } | LoadRetptr { .. } | Retptr => {
             bail!("return pointers aren't supported in wasm interface types");
         }
-        I32FromBool | BoolFromI32 => {
-            bail!("booleans aren't supported in wasm interface types");
-        }
+        I32FromBool | BoolFromI32 => { }
         I32FromStringFirstChar | StringFromChar => {
             bail!("chars aren't supported in wasm interface types");
         }
@@ -259,8 +297,13 @@ fn check_instruction(
         I32Split64 { .. } | I64FromLoHi { .. } => {
             bail!("64-bit integers aren't supported in wasm-bindgen");
         }
+        I32FromOptionAnyref { table_and_alloc } => {
+            match table_and_alloc {
+                Some(..) => { }
+                None => bail!("interface types requires anyref enabled"),
+            }
+        }
         I32SplitOption64 { .. }
-        | I32FromOptionAnyref { .. }
         | I32FromOptionU32Sentinel
         | I32FromOptionRust { .. }
         | I32FromOptionBool
@@ -278,7 +321,7 @@ fn check_instruction(
         | OptionCharFromI32
         | OptionEnumFromI32 { .. }
         | Option64FromI32 { .. } => {
-            bail!("optional types aren't supported in wasm bindgen");
+            bail!("optional type {:?} isn't supported in wasm bindgen", instr.instr);
         }
         MutableSliceToMemory { .. } | VectorToMemory { .. } | VectorLoad { .. } | View { .. } => {
             bail!("vector slices aren't supported in wasm interface types yet");
@@ -302,7 +345,7 @@ fn translate_instruction(
     use Instruction::*;
 
     match &instr.instr {
-        Standard(_) => unimplemented!(),
+        Standard(s) => { results.push(s.clone()) },
         CallAdapter(id) => {
             let id = adapters_in_standard[id];
             results.push(wit_walrus::Instruction::CallAdapter(id));
@@ -347,8 +390,11 @@ fn translate_instruction(
         StoreRetptr { .. } | LoadRetptr { .. } | Retptr => {
             bail!("return pointers aren't supported in wasm interface types");
         }
-        I32FromBool | BoolFromI32 => {
-            bail!("booleans aren't supported in wasm interface types");
+        I32FromBool => {
+            results.push(wit_walrus::Instruction::I32FromBool);
+        }
+        BoolFromI32 => {
+            results.push(wit_walrus::Instruction::BoolFromI32);
         }
         I32FromStringFirstChar | StringFromChar => {
             bail!("chars aren't supported in wasm interface types");
@@ -362,8 +408,21 @@ fn translate_instruction(
         I32Split64 { .. } | I64FromLoHi { .. } => {
             bail!("64-bit integers aren't supported in wasm-bindgen");
         }
+        I32FromOptionAnyref { table_and_alloc } => {
+            match table_and_alloc {
+                Some((table, alloc)) => {
+                    assert!(table.index() == 1);
+                    // Anyref (maybe null) on stack
+                    // Push an allocated table index in the table
+                    results.push(wit_walrus::Instruction::CallCore(*alloc));
+                    // Push a 'fake' table.set which operates on reversed
+                    // operands and leaves the index on the stack
+                    results.push(wit_walrus::Instruction::AnyrefTableTee);
+                }
+                None => bail!("interface types requires anyref enabled"),
+            }
+        }
         I32SplitOption64 { .. }
-        | I32FromOptionAnyref { .. }
         | I32FromOptionU32Sentinel
         | I32FromOptionRust { .. }
         | I32FromOptionBool
@@ -425,19 +484,20 @@ fn check_standard_import(import: &AuxImport) -> Result<(), Error> {
     };
 
     let item = match import {
-        AuxImport::Value(AuxValue::Bare(js)) => {
-            if js.fields.len() == 0 {
-                if let JsImportName::Module { .. } = js.name {
-                    return Ok(());
+        AuxImport::Value(value) => {
+            let import = match value {
+                AuxValue::Bare(import) => import,
+                AuxValue::Getter(import, _) => import,
+                AuxValue::ClassGetter(import, _) => import,
+                AuxValue::Setter(import, _) => import,
+                AuxValue::ClassSetter(import, _) => import,
+            };
+            if let JsImportName::Global { name } = &import.name {
+                if name == "Window" || name == "EventTarget" {
+                    bail!("cannot use proxied objects");
                 }
             }
-            desc_js(js)
-        }
-        AuxImport::Value(AuxValue::Getter(js, name))
-        | AuxImport::Value(AuxValue::Setter(js, name))
-        | AuxImport::Value(AuxValue::ClassGetter(js, name))
-        | AuxImport::Value(AuxValue::ClassSetter(js, name)) => {
-            format!("field access of `{}` for {}", name, desc_js(js))
+            return Ok(());
         }
         AuxImport::ValueWithThis(js, method) => format!("method `{}.{}`", desc_js(js), method),
         AuxImport::Instanceof(js) => format!("instance of check of {}", desc_js(js)),

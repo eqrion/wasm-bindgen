@@ -603,7 +603,8 @@ impl<'a> Context<'a> {
             .module
             .imports
             .iter()
-            .filter(|i| !self.wasm_import_definitions.contains_key(&i.id()))
+            .filter(|i| !self.wasm_import_definitions.contains_key(&i.id()) &&
+                        !self.aux.implements_in_standard.contains(&i.id()))
             .filter(|i| {
                 // Importing memory is handled specially in this area, so don't
                 // consider this a candidate for importing from extra modules.
@@ -2039,6 +2040,14 @@ impl<'a> Context<'a> {
         Ok(name)
     }
 
+    fn find_unforgeable_singleton(&self, class: &str) -> Option<&'static str> {
+        match class {
+            "Window" => Some("window"),
+            "Location" => Some("location"),
+            _ => None,
+        }
+    }
+
     /// If a start function is present, it removes it from the `start` section
     /// of the wasm module and then moves it to an exported function, named
     /// `__wbindgen_start`.
@@ -2083,7 +2092,7 @@ impl<'a> Context<'a> {
             let instrs = match &adapter.kind {
                 AdapterKind::Import { .. } => {
                     if let Some(wit_import) = self.aux.imports_in_standard.get(id) {
-                        self.standard_import_adapter(*id, *wit_import)?;
+                        self.standard_import_adapter(*id, adapter, *wit_import)?;
                     }
                     continue;
                 }
@@ -2321,22 +2330,69 @@ impl<'a> Context<'a> {
 
     fn standard_import_adapter(
         &mut self,
-        adapter: AdapterId,
+        id: AdapterId,
+        adapter: &Adapter,
         wit_import: WitImportId,
     ) -> Result<(), Error> {
         // Next up check to make sure that this import is to a bare JS value
         // itself, no extra fluff intended.
-        let js = match &self.aux.import_map[&adapter] {
-            AuxImport::Value(AuxValue::Bare(js)) => js,
+        let val = match &self.aux.import_map[&id] {
+            AuxImport::Value(val) => val,
+            _ => unreachable!()
+        };
+        let kind = match adapter.kind {
+            AdapterKind::Import { kind, .. } => kind,
             _ => unreachable!(),
         };
+        let js = match kind {
+            AdapterJsImportKind::Constructor => { unreachable!() }
+            AdapterJsImportKind::Method => {
+                let descriptor = |anchor: &str, extra: &str, field: &str, which: &str| {
+                    format!(
+                        "GetOwnOrInheritedPropertyDescriptor({}{}, '{}').{}",
+                        anchor, extra, field, which
+                    )
+                };
+                match val {
+                    AuxValue::Bare(js) => self.import_name(js)?,
+                    AuxValue::Getter(class, field) => {
+                        self.expose_get_inherited_descriptor();
+                        let class = self.import_name(class)?;
+                        if let Some(singleton) = self.find_unforgeable_singleton(&class) {
+                            descriptor(singleton, "", field, "get")
+                        } else {
+                            descriptor(&class, ".prototype", field, "get")
+                        }
+                    }
+                    AuxValue::ClassGetter(class, field) => {
+                        self.expose_get_inherited_descriptor();
+                        let class = self.import_name(class)?;
+                        descriptor(&class, "", field, "get")
+                    }
+                    AuxValue::Setter(class, field) => {
+                        self.expose_get_inherited_descriptor();
+                        let class = self.import_name(class)?;
+                        if let Some(singleton) = self.find_unforgeable_singleton(&class) {
+                            descriptor(singleton, "", field, "set")
+                        } else {
+                            descriptor(&class, ".prototype", field, "set")
+                        }
+                    }
+                    AuxValue::ClassSetter(class, field) => {
+                        self.expose_get_inherited_descriptor();
+                        let class = self.import_name(class)?;
+                        descriptor(&class, "", field, "set")
+                    }
+                }
+            }
+            AdapterJsImportKind::Normal => {
+                match val {
+                    AuxValue::Bare(js) => self.import_name(js)?,
+                    _ => bail!("invalid import set for free function"),
+                }
+            }
+        };
 
-        self.expose_not_defined();
-        let name = self.import_name(js)?;
-        let js = format!(
-            "typeof {name} == 'function' ? {name} : notDefined('{name}')",
-            name = name,
-        );
         self.wit_import_definitions.insert(wit_import, js);
         Ok(())
     }
@@ -2571,11 +2627,33 @@ impl<'a> Context<'a> {
                         )
                     };
                     let js = match val {
-                        AuxValue::Bare(js) => self.import_name(js)?,
+                        AuxValue::Bare(js) => {
+                            match &js.name {
+                                JsImportName::Global { name } => {
+                                    if let Some(singleton) = self.find_unforgeable_singleton(&name) {
+                                        let mut name = singleton.to_owned();
+                                        for field in &js.fields[1..] {
+                                            name.push_str(".");
+                                            name.push_str(field);
+                                        }
+                                        name
+                                    } else {
+                                        self.import_name(js)?
+                                    }
+                                }
+                                _ => {
+                                    self.import_name(js)?
+                                }
+                            }
+                        },
                         AuxValue::Getter(class, field) => {
                             self.expose_get_inherited_descriptor();
                             let class = self.import_name(class)?;
-                            descriptor(&class, ".prototype", field, "get")
+                            if let Some(singleton) = self.find_unforgeable_singleton(&class) {
+                                descriptor(singleton, "", field, "get")
+                            } else {
+                                descriptor(&class, ".prototype", field, "get")
+                            }
                         }
                         AuxValue::ClassGetter(class, field) => {
                             self.expose_get_inherited_descriptor();
@@ -2585,7 +2663,11 @@ impl<'a> Context<'a> {
                         AuxValue::Setter(class, field) => {
                             self.expose_get_inherited_descriptor();
                             let class = self.import_name(class)?;
-                            descriptor(&class, ".prototype", field, "set")
+                            if let Some(singleton) = self.find_unforgeable_singleton(&class) {
+                                descriptor(singleton, "", field, "set")
+                            } else {
+                                descriptor(&class, ".prototype", field, "set")
+                            }
                         }
                         AuxValue::ClassSetter(class, field) => {
                             self.expose_get_inherited_descriptor();
@@ -2874,7 +2956,7 @@ impl<'a> Context<'a> {
 
             Intrinsic::Throw => {
                 assert_eq!(args.len(), 1);
-                format!("throw new Error({})", args[0])
+                format!("console.trace();\nthrow new Error({})", args[0])
             }
 
             Intrinsic::Rethrow => {
